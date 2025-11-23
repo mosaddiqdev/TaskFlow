@@ -4,6 +4,7 @@ import { Header } from "../../components/Header/Header";
 import { Board } from "../../components/Board/Board";
 import { ProjectModal } from "../../components/ProjectModal/ProjectModal";
 import { SettingsModal } from "../../components/SettingsModal/SettingsModal";
+import { EmptyState } from "../../components/EmptyState/EmptyState";
 import {
   useLocalStorageProjects,
   useLocalStoragePreferences,
@@ -170,39 +171,60 @@ export const Dashboard = () => {
       />
 
       <div className="mainContent">
-        <Header
-          projectName={activeProject?.name || "Project"}
-          project={activeProject}
-          searchTerm={preferences.searchTerm}
-          onSearchChange={(term) =>
-            setPreferences({ ...preferences, searchTerm: term })
-          }
-          filterPriority={preferences.filterPriority}
-          onFilterChange={(priority) =>
-            setPreferences({ ...preferences, filterPriority: priority })
-          }
-          sortBy={preferences.sortBy}
-          onSortChange={(sort) =>
-            setPreferences({ ...preferences, sortBy: sort })
-          }
-          viewMode={preferences.viewMode}
-          onViewChange={(mode) =>
-            setPreferences({ ...preferences, viewMode: mode })
-          }
-          onProjectDetails={() => {
-            setProjectModalMode("edit");
-            setIsProjectModalOpen(true);
-          }}
-        />
+        {activeProject && (
+          <Header
+            projectName={activeProject.name}
+            project={activeProject}
+            searchTerm={preferences.searchTerm}
+            onSearchChange={(term) =>
+              setPreferences({ ...preferences, searchTerm: term })
+            }
+            filterPriority={preferences.filterPriority}
+            onFilterChange={(priority) =>
+              setPreferences({ ...preferences, filterPriority: priority })
+            }
+            sortBy={preferences.sortBy}
+            onSortChange={(sort) =>
+              setPreferences({ ...preferences, sortBy: sort })
+            }
+            viewMode={preferences.viewMode}
+            onViewChange={(mode) =>
+              setPreferences({ ...preferences, viewMode: mode })
+            }
+            onProjectDetails={() => {
+              setProjectModalMode("edit");
+              setIsProjectModalOpen(true);
+            }}
+          />
+        )}
 
         <div className="boardContainer">
-          <Board
-            projectId={activeProjectId}
-            searchTerm={preferences.searchTerm}
-            filterPriority={preferences.filterPriority}
-            sortBy={preferences.sortBy}
-            viewMode={preferences.viewMode}
-          />
+          {!activeProject ? (
+            <div
+              style={{
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <EmptyState
+                type="project"
+                onAction={() => {
+                  setProjectModalMode("create");
+                  setIsProjectModalOpen(true);
+                }}
+              />
+            </div>
+          ) : (
+            <Board
+              projectId={activeProjectId}
+              searchTerm={preferences.searchTerm}
+              filterPriority={preferences.filterPriority}
+              sortBy={preferences.sortBy}
+              viewMode={preferences.viewMode}
+            />
+          )}
         </div>
       </div>
 

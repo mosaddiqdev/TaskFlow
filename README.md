@@ -10,7 +10,7 @@
 
 **A beautiful, fast, and intuitive Kanban board application for managing your projects and tasks.**
 
-[View Demo](https://mosaddiqdev.github.io/TaskFlow) · [Report Bug](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=bug) · [Request Feature](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=enhancement)
+[View Demo](https://taskflow-m.netlify.app/) · [Report Bug](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=bug) · [Request Feature](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=enhancement)
 
 </div>
 

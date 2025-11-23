@@ -1,24 +1,30 @@
-import { InboxIcon, Plus } from 'lucide-react';
-import styles from './EmptyState.module.css';
+import { InboxIcon, Plus } from "lucide-react";
+import styles from "./EmptyState.module.css";
 
 export function EmptyState({ type, onAction }) {
   const states = {
+    project: {
+      icon: InboxIcon,
+      title: "No Projects Yet",
+      message: "Create your first project to start organizing tasks",
+      action: "Create Project",
+    },
     board: {
       icon: InboxIcon,
-      title: 'No Lanes Yet',
-      message: 'Create your first lane to get started',
-      action: 'Create Lane',
+      title: "No Lanes Yet",
+      message: "Create your first lane to get started",
+      action: "Create Lane",
     },
     lane: {
       icon: Plus,
-      title: 'No Tasks Yet',
-      message: 'Add a task to this lane to get started',
-      action: 'Add Task',
+      title: "No Tasks Yet",
+      message: "Add a task to this lane to get started",
+      action: "Add Task",
     },
     search: {
       icon: InboxIcon,
-      title: 'No Results Found',
-      message: 'Try adjusting your search or filters',
+      title: "No Results Found",
+      message: "Try adjusting your search or filters",
       action: null,
     },
   };
@@ -32,11 +38,7 @@ export function EmptyState({ type, onAction }) {
       <h3 className={styles.title}>{state.title}</h3>
       <p className={styles.message}>{state.message}</p>
       {state.action && (
-        <button 
-          className={styles.actionBtn} 
-          onClick={onAction}
-          type="button"
-        >
+        <button className={styles.actionBtn} onClick={onAction} type="button">
           {state.action}
         </button>
       )}

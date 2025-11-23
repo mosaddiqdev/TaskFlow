@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Moon, Sun, Download, Upload, Trash2 } from "lucide-react";
+import { ConfirmModal } from "../ConfirmModal/ConfirmModal";
 import {
   exportBoardAsJSON,
   exportProjectsAsJSON,
@@ -27,6 +28,7 @@ export function SettingsModal({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [isConfirmClearOpen, setIsConfirmClearOpen] = useState(false);
 
   const clearError = () => setError(null);
   const clearSuccess = () => setSuccess(null);
@@ -162,19 +164,13 @@ export function SettingsModal({
   };
 
   const handleClearData = () => {
-    if (
-      window.confirm(
-        "Are you sure you want to delete all TaskFlow data? This action cannot be undone."
-      )
-    ) {
-      try {
-        setError(null);
-        onClearData();
-        setSuccess("All data cleared successfully!");
-        setTimeout(clearSuccess, 3000);
-      } catch (err) {
-        setError(err.message || "Failed to clear data");
-      }
+    try {
+      setError(null);
+      onClearData();
+      setSuccess("All data cleared successfully!");
+      setTimeout(clearSuccess, 3000);
+    } catch (err) {
+      setError(err.message || "Failed to clear data");
     }
   };
 
@@ -341,7 +337,7 @@ export function SettingsModal({
             </div>
             <button
               className={styles.actionBtn + " " + styles.actionBtnDanger}
-              onClick={handleClearData}
+              onClick={() => setIsConfirmClearOpen(true)}
               disabled={isLoading}
             >
               <Trash2 size={16} />
@@ -356,6 +352,17 @@ export function SettingsModal({
           </button>
         </div>
       </div>
+
+      <ConfirmModal
+        isOpen={isConfirmClearOpen}
+        onClose={() => setIsConfirmClearOpen(false)}
+        title="Clear All Data"
+        message="Are you sure you want to delete all TaskFlow data? This will permanently remove all projects, boards, cards, and preferences. This action cannot be undone."
+        confirmText="Clear All Data"
+        cancelText="Cancel"
+        isDangerous={true}
+        onConfirm={handleClearData}
+      />
     </>
   );
 }

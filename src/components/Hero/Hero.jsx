@@ -58,7 +58,7 @@ export function Hero() {
               <span className={styles.dot}></span>
               <span className={styles.dot}></span>
             </div>
-            <div className={styles.addressBar}>taskflow.app</div>
+            <div className={styles.addressBar}>taskflow-m.netlify.app</div>
           </div>
           <div className={styles.windowContent}>
             <img

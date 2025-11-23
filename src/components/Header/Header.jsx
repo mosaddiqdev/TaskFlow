@@ -1,7 +1,15 @@
-import { useState } from 'react';
-import { Search, LayoutGrid, List, MoreVertical, Filter, ArrowUpDown, X } from 'lucide-react';
-import { Dropdown } from '../Dropdown/Dropdown';
-import styles from './Header.module.css';
+import { useState } from "react";
+import {
+  Search,
+  LayoutGrid,
+  List,
+  MoreVertical,
+  Filter,
+  ArrowUpDown,
+  X,
+} from "lucide-react";
+import { Dropdown } from "../Dropdown/Dropdown";
+import styles from "./Header.module.css";
 
 export function Header({
   projectName,
@@ -19,17 +27,17 @@ export function Header({
   const [showFilters, setShowFilters] = useState(false);
 
   const priorityOptions = [
-    { label: 'All Priority', value: 'all' },
-    { label: 'High', value: 'high' },
-    { label: 'Medium', value: 'medium' },
-    { label: 'Low', value: 'low' },
+    { label: "All Priority", value: "all" },
+    { label: "High", value: "high" },
+    { label: "Medium", value: "medium" },
+    { label: "Low", value: "low" },
   ];
 
   const sortOptions = [
-    { label: 'Recently Updated', value: 'updated' },
-    { label: 'Created Date', value: 'created' },
-    { label: 'Priority', value: 'priority' },
-    { label: 'Alphabetical', value: 'alphabetical' },
+    { label: "Recently Updated", value: "updated" },
+    { label: "Created Date", value: "created" },
+    { label: "Priority", value: "priority" },
+    { label: "Alphabetical", value: "alphabetical" },
   ];
 
   return (
@@ -37,9 +45,9 @@ export function Header({
       <header className={styles.header}>
         {/* Top Section - Title & Menu */}
         <div className={styles.topSection}>
-          <h1 className={styles.projectName}>{projectName}</h1>
-          
-          <div className={styles.headerActions}>
+          <div className={styles.titleArea}>
+            <h1 className={styles.projectName}>{projectName}</h1>
+
             <button
               className={styles.menuBtn}
               onClick={onProjectDetails}
@@ -48,22 +56,24 @@ export function Header({
             >
               <MoreVertical size={18} />
             </button>
+          </div>
 
+          <div className={styles.headerActions}>
             <div className={styles.viewControls}>
               <button
                 className={`${styles.viewBtn} ${
-                  viewMode === 'board' ? styles.active : ''
+                  viewMode === "board" ? styles.active : ""
                 }`}
-                onClick={() => onViewChange('board')}
+                onClick={() => onViewChange("board")}
                 title="Board view"
               >
                 <LayoutGrid size={18} />
               </button>
               <button
                 className={`${styles.viewBtn} ${
-                  viewMode === 'list' ? styles.active : ''
+                  viewMode === "list" ? styles.active : ""
                 }`}
-                onClick={() => onViewChange('list')}
+                onClick={() => onViewChange("list")}
                 title="List view"
               >
                 <List size={18} />
@@ -83,7 +93,7 @@ export function Header({
               onChange={(e) => onSearchChange(e.target.value)}
               className={styles.searchInput}
             />
-            
+
             {/* Filter Button Inside Search Bar */}
             <button
               className={styles.searchFilterBtn}
@@ -142,7 +152,7 @@ export function Header({
                     <button
                       key={option.value}
                       className={`${styles.pill} ${
-                        filterPriority === option.value ? styles.pillActive : ''
+                        filterPriority === option.value ? styles.pillActive : ""
                       }`}
                       onClick={() => onFilterChange(option.value)}
                     >
@@ -160,7 +170,7 @@ export function Header({
                     <button
                       key={option.value}
                       className={`${styles.pill} ${
-                        sortBy === option.value ? styles.pillActive : ''
+                        sortBy === option.value ? styles.pillActive : ""
                       }`}
                       onClick={() => onSortChange(option.value)}
                     >
