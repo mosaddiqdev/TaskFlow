@@ -1,0 +1,625 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  flex-shrink: 0;
+}
+
+/* Top Section */
+.topSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.projectName {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.menuBtn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
+}
+
+.viewControls {
+  display: flex;
+  gap: 6px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.viewBtn:hover {
+  color: var(--color-text-primary);
+}
+
+.viewBtn.active {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom Section */
+.bottomSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: space-between;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  width: 320px;
+  color: var(--color-text-secondary);
+  order: -1;
+  position: relative;
+}
+
+.searchBox:focus-within {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  outline: none;
+  flex: 1;
+  width: 100%;
+  padding-right: var(--space-2);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.searchFilterBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.filterControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  order: 1;
+}
+
+/* Tablet Responsive (641px - 1024px) - Same as mobile but with view toggle */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .header {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+    position: relative;
+  }
+
+  .topSection {
+    gap: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .projectName {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+  }
+
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .menuBtn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .viewControls {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .viewBtn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bottomSection {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .searchBox {
+    width: 100%;
+    min-width: unset;
+    padding: var(--space-2) var(--space-3);
+    min-height: 44px;
+    font-size: 16px;
+    gap: var(--space-2);
+  }
+
+  .searchInput {
+    font-size: 16px;
+    min-height: 44px;
+    padding-right: var(--space-2);
+  }
+
+  .searchFilterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .searchFilterBtn:hover {
+    color: var(--color-text-primary);
+  }
+
+  .searchFilterBtn:active {
+    opacity: 0.8;
+  }
+
+  .filterControls {
+    display: none;
+  }
+
+  .mobileFilterOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .mobileFilterPanel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-primary);
+    border-top: 1px solid var(--color-border);
+    z-index: 1000;
+    animation: slideUp 0.3s ease-out;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .filterPanelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .filterPanelHeader h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .filterPanelContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .filterLabel {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .closePanelBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .closePanelBtn:hover {
+    color: var(--color-text-primary);
+  }
+
+  .closePanelBtn:active {
+    opacity: 0.8;
+  }
+
+  /* Pill Buttons */
+  .pillGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .pill {
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pill:hover {
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-border-hover);
+    color: var(--color-text-primary);
+  }
+
+  .pill:active {
+    opacity: 0.8;
+  }
+
+  .pillActive {
+    background: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    font-weight: 600;
+  }
+
+  .pillActive:hover {
+    background: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    opacity: 0.9;
+  }
+}
+
+/* Mobile Responsive (640px and below) */
+@media (max-width: 640px) {
+  .header {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+    position: relative;
+  }
+
+  .topSection {
+    gap: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .projectName {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+  }
+
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .menuBtn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .viewControls {
+    display: none;
+  }
+
+  .viewBtn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .bottomSection {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .searchBox {
+    width: 100%;
+    min-width: unset;
+    padding: var(--space-2) var(--space-3);
+    min-height: 44px;
+    font-size: 16px;
+    gap: var(--space-2);
+  }
+
+  .searchInput {
+    font-size: 16px;
+    min-height: 44px;
+    padding-right: var(--space-2);
+  }
+
+  .searchFilterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .searchFilterBtn:hover {
+    color: var(--color-text-primary);
+  }
+
+  .searchFilterBtn:active {
+    opacity: 0.8;
+  }
+
+  .filterControls {
+    display: none;
+  }
+
+  .mobileFilterOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .mobileFilterPanel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-primary);
+    border-top: 1px solid var(--color-border);
+    z-index: 1000;
+    animation: slideUp 0.3s ease-out;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .filterPanelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .filterPanelHeader h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .filterPanelContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .filterLabel {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .closePanelBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .closePanelBtn:hover {
+    color: var(--color-text-primary);
+  }
+
+  .closePanelBtn:active {
+    opacity: 0.8;
+  }
+
+  /* Pill Buttons */
+  .pillGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .pill {
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pill:hover {
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-border-hover);
+    color: var(--color-text-primary);
+  }
+
+  .pill:active {
+    opacity: 0.8;
+  }
+
+  .pillActive {
+    background: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    font-weight: 600;
+  }
+
+  .pillActive:hover {
+    background: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    opacity: 0.9;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,75 @@
+.swipeContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-tertiary);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deleteAction {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  background: rgba(239, 68, 68, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+.deleteBtn:active {
+  opacity: 0.8;
+}
+
+/* Swipe open state */
+.swipeContainer.open .cardContent {
+  transform: translateX(-60px);
+}
+
+/* Desktop: Hide delete action, show on hover */
+@media (min-width: 769px) {
+  .deleteAction {
+    display: none;
+  }
+
+  .swipeContainer:hover .deleteAction {
+    display: flex;
+  }
+
+  .swipeContainer:hover .cardContent {
+    transform: translateX(-60px);
+  }
+}
+
+/* Mobile: Show delete action on swipe */
+@media (max-width: 768px) {
+  .swipeContainer {
+    touch-action: pan-y;
+  }
+
+  .cardContent {
+    will-change: transform;
+  }
+}

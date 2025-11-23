@@ -1,0 +1,430 @@
+.mobileMenuBtn {
+  display: none;
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 1002;
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.mobileMenuBtn:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-hover);
+}
+
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 100vh;
+  background: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-4);
+  gap: var(--space-3);
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars */
+.sidebar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-tertiary);
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.logoText h2 {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.logoText p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.projectsToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-3);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.projectsToggle:hover {
+  background: var(--color-bg-tertiary);
+}
+
+.projectsLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.chevron {
+  color: var(--color-text-secondary);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: var(--space-1);
+  flex: 1;
+}
+
+/* Hide scrollbars */
+.projectsList {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.projectsList::-webkit-scrollbar {
+  display: none;
+}
+
+.projectCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.projectCard:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.projectCard.projectCardActive {
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
+.projectCardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.projectName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectDesc {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectCardActive .projectDesc {
+  opacity: 0.8;
+}
+
+.projectIndicator {
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.projectCardActive .projectIndicator {
+  opacity: 1;
+}
+
+.emptyProjects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-3);
+  text-align: center;
+  color: var(--color-text-tertiary);
+}
+
+.emptyProjects p {
+  font-size: var(--font-size-xs);
+  margin: 0;
+}
+
+.createProjectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-bg-tertiary);
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.createProjectBtn:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.newProjectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.newProjectBtn:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border-hover);
+}
+
+.newProjectBtn svg {
+  flex-shrink: 0;
+}
+
+.settingsBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.settingsBtn:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border-hover);
+}
+
+.settingsBtn svg {
+  flex-shrink: 0;
+}
+
+/* Tablet Responsive (768px and below) */
+@media (max-width: 768px) {
+  .mobileMenuBtn {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    z-index: 999;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .mobileOverlay.open {
+    display: block;
+  }
+
+  .projectsList {
+    max-height: calc(100vh - 300px);
+  }
+}
+
+/* Mobile Responsive (640px and below) */
+@media (max-width: 640px) {
+  .mobileMenuBtn {
+    display: flex;
+    top: var(--space-3);
+    left: var(--space-3);
+    width: 48px;
+    height: 48px;
+    z-index: 1002;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 280px;
+    padding: var(--space-4);
+    gap: var(--space-3);
+    padding-top: 60px;
+  }
+
+  .logo {
+    padding: var(--space-3);
+  }
+
+  .logoText h2 {
+    font-size: var(--font-size-base);
+  }
+
+  .logoText p {
+    display: block;
+    font-size: var(--font-size-xs);
+  }
+
+  .projectsToggle {
+    padding: var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+
+  .projectsList {
+    gap: var(--space-2);
+    max-height: calc(100vh - 350px);
+  }
+
+  .projectCard {
+    padding: var(--space-3);
+    min-height: 60px;
+  }
+
+  .projectName {
+    font-size: var(--font-size-sm);
+  }
+
+  .projectDesc {
+    font-size: var(--font-size-xs);
+  }
+
+  .createProjectBtn {
+    padding: var(--space-3);
+    font-size: var(--font-size-xs);
+    min-height: 44px;
+  }
+
+  .newProjectBtn {
+    padding: var(--space-3);
+    min-height: 48px;
+  }
+
+  .settingsBtn {
+    padding: var(--space-3);
+    min-height: 48px;
+  }
+}

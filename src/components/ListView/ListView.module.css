@@ -1,0 +1,339 @@
+.listView {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 0.5fr;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.listBody {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars */
+.listBody {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.listBody::-webkit-scrollbar {
+  display: none;
+}
+
+.listRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 0.5fr;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.listRow:hover {
+  background: var(--color-bg-secondary);
+}
+
+.colTask {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.taskInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.taskTitle {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  word-break: break-word;
+}
+
+.taskDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.colLane,
+.colPriority,
+.colDue,
+.colLabels,
+.colAction {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.laneBadge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.priorityBadge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-bg-primary);
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.dueDate {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.labelsList {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.label {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.noData {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  opacity: 0;
+}
+
+.listRow:hover .deleteBtn {
+  opacity: 1;
+}
+
+.deleteBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-accent-red);
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-base);
+}
+
+.emptyState p {
+  margin: 0;
+}
+
+/* Tablet Responsive (1024px and below) */
+@media (max-width: 1024px) {
+  .listHeader,
+  .listRow {
+    grid-template-columns: 2fr 1fr 1fr 0.5fr;
+    gap: var(--space-3);
+  }
+
+  .colDue,
+  .colLabels {
+    display: none;
+  }
+}
+
+/* Tablet Responsive (768px and below) */
+@media (max-width: 768px) {
+  .listHeader,
+  .listRow {
+    grid-template-columns: 1.5fr 1fr 0.5fr;
+    gap: var(--space-2);
+  }
+
+  .colLane,
+  .colPriority {
+    display: none;
+  }
+
+  .listHeader,
+  .listRow {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .taskTitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .taskDesc {
+    display: none;
+  }
+}
+
+/* Mobile Responsive (640px and below) */
+@media (max-width: 640px) {
+  .listView {
+    height: 100%;
+  }
+
+  .listHeader {
+    display: none;
+  }
+
+  .listBody {
+    flex: 1;
+  }
+
+  .listRow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    border-bottom: none;
+  }
+
+  .colTask,
+  .colLane,
+  .colPriority,
+  .colDue,
+  .colLabels,
+  .colAction {
+    display: flex;
+    width: 100%;
+  }
+
+  .colTask {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .colLane::before {
+    content: 'Lane: ';
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .colPriority::before {
+    content: 'Priority: ';
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .colDue::before {
+    content: 'Due: ';
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .colLabels::before {
+    content: 'Labels: ';
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .taskInfo {
+    gap: var(--space-1);
+  }
+
+  .taskTitle {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+
+  .taskDesc {
+    display: block;
+    font-size: var(--font-size-xs);
+  }
+
+  .laneBadge {
+    display: inline-block;
+  }
+
+  .priorityBadge {
+    display: inline-block;
+  }
+
+  .dueDate {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .labelsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .deleteBtn {
+    width: 32px;
+    height: 32px;
+    align-self: flex-end;
+  }
+
+  .emptyState {
+    min-height: 200px;
+  }
+}
