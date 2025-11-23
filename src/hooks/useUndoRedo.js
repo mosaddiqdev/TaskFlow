@@ -4,8 +4,10 @@ import { useCallback, useRef } from 'react';
  * Best-practice Undo/Redo hook using Command pattern
  * Maintains separate stacks for undo and redo operations
  * Supports keyboard shortcuts (Ctrl+Z, Ctrl+Y)
+ * @param {*} initialState - Initial state value
+ * @param {number} maxHistory - Maximum history size (default: 50)
  */
-export function useUndoRedo(initialState) {
+export function useUndoRedo(initialState, maxHistory = 50) {
   const stateRef = useRef(initialState);
   const undoStackRef = useRef([]);
   const redoStackRef = useRef([]);
@@ -14,11 +16,17 @@ export function useUndoRedo(initialState) {
   const recordState = useCallback((newState) => {
     // Push current state to undo stack
     undoStackRef.current.push(stateRef.current);
+    
+    // Trim undo stack if it exceeds max history
+    if (undoStackRef.current.length > maxHistory) {
+      undoStackRef.current.shift();
+    }
+    
     // Clear redo stack when new action is performed
     redoStackRef.current = [];
     // Update current state
     stateRef.current = newState;
-  }, []);
+  }, [maxHistory]);
 
   // Undo to previous state
   const undo = useCallback(() => {

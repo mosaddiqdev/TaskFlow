@@ -14,14 +14,14 @@
       "id": "proj-1700000000001",
       "name": "SaaS Platform Launch",
       "description": "Q4 Product Launch for the new enterprise dashboard.",
-      "createdAt": "2023-11-01",
+      "createdAt": "2023-11-01T00:00:00.000Z",
       "lanes": []
     },
     {
       "id": "proj-1700000000002",
       "name": "Mobile App Refresh",
       "description": "UI/UX overhaul for iOS and Android apps.",
-      "createdAt": "2023-11-15",
+      "createdAt": "2023-11-15T00:00:00.000Z",
       "lanes": []
     }
   ],
@@ -43,7 +43,7 @@
             "priority": "high",
             "labels": ["Design", "High Priority"],
             "dueDate": "2023-11-25",
-            "createdAt": "2023-11-20"
+            "createdAt": "2023-11-20T00:00:00.000Z"
           },
           {
             "id": "card-2",
@@ -52,7 +52,7 @@
             "priority": "medium",
             "labels": ["DevOps"],
             "dueDate": "2023-11-26",
-            "createdAt": "2023-11-21"
+            "createdAt": "2023-11-21T00:00:00.000Z"
           }
         ]
       },
@@ -68,7 +68,7 @@
             "priority": "high",
             "labels": ["Backend", "Security"],
             "dueDate": "2023-11-24",
-            "createdAt": "2023-11-22"
+            "createdAt": "2023-11-22T00:00:00.000Z"
           },
           {
             "id": "card-4",
@@ -77,7 +77,7 @@
             "priority": "medium",
             "labels": ["Frontend", "Creative"],
             "dueDate": "2023-11-23",
-            "createdAt": "2023-11-22"
+            "createdAt": "2023-11-22T00:00:00.000Z"
           }
         ]
       },
@@ -93,7 +93,7 @@
             "priority": "medium",
             "labels": ["Frontend"],
             "dueDate": "2023-11-22",
-            "createdAt": "2023-11-21"
+            "createdAt": "2023-11-21T00:00:00.000Z"
           }
         ]
       },
@@ -109,7 +109,7 @@
             "priority": "low",
             "labels": ["Management"],
             "dueDate": "2023-11-01",
-            "createdAt": "2023-11-01"
+            "createdAt": "2023-11-01T00:00:00.000Z"
           },
           {
             "id": "card-7",
@@ -118,7 +118,7 @@
             "priority": "high",
             "labels": ["Backend"],
             "dueDate": "2023-11-05",
-            "createdAt": "2023-11-02"
+            "createdAt": "2023-11-02T00:00:00.000Z"
           }
         ]
       }

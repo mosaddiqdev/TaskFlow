@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taskflow.app/sitemap.xml

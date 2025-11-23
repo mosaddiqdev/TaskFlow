@@ -113,18 +113,20 @@ export function saveProjectBoard(projectId, board) {
 
     try {
       localStorage.setItem(key, JSON.stringify(boardToSave));
-      return true;
+      return { success: true };
     } catch (storageError) {
       if (storageError.name === 'QuotaExceededError') {
-        alert('Storage limit reached. Please export your board or delete old data.');
         console.error('localStorage quota exceeded');
-        return false;
+        return { 
+          success: false, 
+          error: 'Storage limit reached. Please export your board or delete old data.' 
+        };
       }
       throw storageError;
     }
   } catch (error) {
     console.error(`Error saving board for project ${projectId}:`, error);
-    return false;
+    return { success: false, error: error.message };
   }
 }
 
@@ -154,7 +156,12 @@ export function getAllProjectBoards() {
         const projectId = key.replace(BOARD_PREFIX, '');
         const stored = localStorage.getItem(key);
         if (stored) {
-          boards[projectId] = JSON.parse(stored);
+          try {
+            boards[projectId] = JSON.parse(stored);
+          } catch (parseError) {
+            console.warn(`Skipping invalid board data for key ${key}`, parseError);
+            // Continue to next item instead of failing entirely
+          }
         }
       }
     }

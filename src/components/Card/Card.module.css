@@ -64,8 +64,8 @@
   opacity: 0;
   transition: opacity var(--transition-fast);
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin-top: 2px;
   cursor: grab;
   padding: 4px;
@@ -98,25 +98,6 @@
   padding: 2px;
 }
 
-.deleteBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  background: none;
-  border: none;
-  color: var(--color-text-tertiary);
-  cursor: pointer;
-  border-radius: var(--radius-sm);
-  flex-shrink: 0;
-  padding: 2px;
-}
-
-.card:hover .editBtn,
-.card:hover .deleteBtn {
-  opacity: 1;
-}
 .editBtn:hover {
   background: rgba(16, 185, 129, 0.1);
   color: var(--color-accent-green);

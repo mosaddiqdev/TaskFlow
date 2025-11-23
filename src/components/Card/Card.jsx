@@ -38,7 +38,10 @@ export function Card({
   const formatDate = (dateStr) => {
     if (!dateStr) return null;
     const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    return date.toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+    });
   };
 
   const handleCardClick = (e) => {

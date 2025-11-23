@@ -1,21 +1,24 @@
-import { useEffect } from 'react';
-import { X, Trash2 } from 'lucide-react';
-import styles from './Modal.module.css';
+import { useEffect } from "react";
+import { X, Trash2 } from "lucide-react";
+import styles from "./Modal.module.css";
 
 export function Modal({ isOpen, onClose, project, onDelete }) {
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      // Only restore scroll if this modal is actually open
+      if (isOpen) {
+        document.body.style.overflow = "unset";
+      }
     };
   }, [isOpen, onClose]);
 
@@ -41,7 +44,7 @@ export function Modal({ isOpen, onClose, project, onDelete }) {
             <label className={styles.label}>Project Name</label>
             <input
               type="text"
-              value={project?.name || ''}
+              value={project?.name || ""}
               readOnly
               className={styles.input}
             />
@@ -50,7 +53,7 @@ export function Modal({ isOpen, onClose, project, onDelete }) {
           <div className={styles.section}>
             <label className={styles.label}>Description</label>
             <textarea
-              value={project?.description || 'No description'}
+              value={project?.description || "No description"}
               readOnly
               className={styles.textarea}
               rows="4"
@@ -61,7 +64,7 @@ export function Modal({ isOpen, onClose, project, onDelete }) {
             <label className={styles.label}>Project ID</label>
             <input
               type="text"
-              value={project?.id || ''}
+              value={project?.id || ""}
               readOnly
               className={styles.input}
             />
@@ -71,7 +74,7 @@ export function Modal({ isOpen, onClose, project, onDelete }) {
             <label className={styles.label}>Created</label>
             <input
               type="text"
-              value={project?.createdAt || 'N/A'}
+              value={project?.createdAt || "N/A"}
               readOnly
               className={styles.input}
             />

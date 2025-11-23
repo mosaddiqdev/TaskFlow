@@ -10,7 +10,7 @@
 
 **A beautiful, fast, and intuitive Kanban board application for managing your projects and tasks.**
 
-[View Demo](#) · [Report Bug](#) · [Request Feature](#)
+[View Demo](https://mosaddiqdev.github.io/TaskFlow) · [Report Bug](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=bug) · [Request Feature](https://github.com/mosaddiqdev/TaskFlow/issues/new?labels=enhancement)
 
 </div>
 
@@ -53,17 +53,20 @@ Follow these steps to get a local copy up and running.
 ### Installation
 
 1.  **Clone the repository**
+
     ```bash
     git clone https://github.com/mosaddiqdev/TaskFlow.git
     cd taskflow
     ```
 
 2.  **Install dependencies**
+
     ```bash
     npm install
     ```
 
 3.  **Start the development server**
+
     ```bash
     npm run dev
     ```
@@ -75,7 +78,7 @@ Follow these steps to get a local copy up and running.
 
 ## 📂 Project Structure
 
-```
+```plaintext
 src/
 ├── components/      # Reusable UI components (Board, Card, Hero, etc.)
 ├── hooks/           # Custom React hooks (useLocalStorage, etc.)
@@ -88,12 +91,14 @@ src/
 ## 🎯 Features in Detail
 
 ### Landing Page
+
 - Interactive 3D showcase with mouse-responsive tilt effect
 - Glassmorphism "Enter Workspace" button
 - macOS-style window controls
 - Subtle grid background pattern
 
 ### Kanban Board
+
 - Smooth drag-and-drop between lanes
 - Card duplication and editing
 - Priority levels and due dates

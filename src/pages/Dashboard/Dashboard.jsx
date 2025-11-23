@@ -48,7 +48,9 @@ export const Dashboard = () => {
 
   const handleProjectSubmit = (projectData) => {
     if (projectModalMode === "create") {
-      const newId = `proj-${Date.now()}`;
+      const newId = `proj-${Date.now()}-${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
       const newProject = {
         id: newId,
         name: projectData.name,

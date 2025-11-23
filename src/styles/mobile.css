@@ -74,7 +74,7 @@
 
   /* Overlay for modals */
   .overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4); /* Fallback for browsers without backdrop-filter */
     backdrop-filter: blur(2px);
   }
 
@@ -273,20 +273,24 @@
    ============================================ */
 
 @media (max-width: 768px) {
-  /* Reduce animations on mobile for performance */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-
   /* GPU acceleration for smooth scrolling */
   .boardContainer,
   .projectsList,
   .modal .content {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/* Respect user motion preferences on all devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
