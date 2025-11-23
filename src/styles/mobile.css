@@ -1,0 +1,296 @@
+/**
+ * Mobile Optimizations
+ * - Touch targets: 48px minimum
+ * - Bottom sheet modals
+ * - Swipe gestures
+ * - Mobile-first responsive design
+ */
+
+/* ============================================
+   TOUCH TARGETS - 48px minimum
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* All interactive elements */
+  button,
+  a[role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Icon buttons */
+  button svg,
+  a[role="button"] svg {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  /* Form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="date"],
+  textarea,
+  select {
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Links */
+  a {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ============================================
+   BOTTOM SHEET MODALS
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Modal positioning */
+  .modal {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 90vh;
+    width: 100%;
+    max-width: none;
+    animation: slideUpFromBottom 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Overlay for modals */
+  .overlay {
+    background: rgba(0, 0, 0, 0.4); /* Fallback for browsers without backdrop-filter */
+    backdrop-filter: blur(2px);
+  }
+
+  /* Modal header - drag handle */
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+  }
+
+  /* Add padding for drag handle */
+  .modal .header {
+    padding-top: var(--space-5);
+  }
+
+  /* Full-width buttons in modals */
+  .modal button {
+    width: 100%;
+  }
+
+  /* Modal content scrolling */
+  .modal .content {
+    max-height: calc(90vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   SWIPE GESTURES
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Cards - swipe to delete */
+  .card {
+    position: relative;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Prevent text selection during swipe */
+  .card,
+  .lane,
+  .projectCard {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Sidebar - swipe to close */
+  .sidebar {
+    touch-action: pan-y;
+  }
+
+  /* Smooth scrolling */
+  .boardContainer,
+  .projectsList,
+  .modal .content {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* ============================================
+   MOBILE MENU ENHANCEMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Mobile menu button */
+  .mobileMenuBtn {
+    min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-2);
+  }
+
+  /* Sidebar overlay */
+  .mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    animation: fadeIn 150ms ease-out;
+  }
+
+  /* Sidebar slide animation */
+  .sidebar {
+    animation: slideInFromLeft 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebar.open {
+    animation: slideInFromLeft 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   MOBILE SPACING & LAYOUT
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Reduce padding on mobile */
+  .header,
+  .sidebar,
+  .modal .header {
+    padding: var(--space-4);
+  }
+
+  /* Full-width elements */
+  .modal,
+  .card,
+  .lane {
+    width: 100%;
+  }
+
+  /* Reduce gap between elements */
+  .buttonGroup,
+  .actionGroup {
+    gap: var(--space-2);
+  }
+
+  /* Safe area for notched devices */
+  @supports (padding: max(0px)) {
+    .header,
+    .sidebar,
+    .modal {
+      padding-left: max(var(--space-4), env(safe-area-inset-left));
+      padding-right: max(var(--space-4), env(safe-area-inset-right));
+    }
+
+    .modal .header {
+      padding-top: max(var(--space-5), env(safe-area-inset-top));
+    }
+  }
+}
+
+/* ============================================
+   MOBILE KEYBOARD HANDLING
+   ============================================ */
+
+@media (max-width: 640px) {
+  /* Prevent layout shift when keyboard appears */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Adjust modal when keyboard is visible */
+  @supports (padding: max(0px)) {
+    .modal .content {
+      padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* ============================================
+   MOBILE PERFORMANCE
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* GPU acceleration for smooth scrolling */
+  .boardContainer,
+  .projectsList,
+  .modal .content {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/* Respect user motion preferences on all devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

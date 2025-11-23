@@ -1,0 +1,26 @@
+{
+  "name": "TaskFlow - Kanban Board",
+  "short_name": "TaskFlow",
+  "description": "Beautiful, fast, and intuitive Kanban board for managing your projects and tasks",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "categories": ["productivity", "business", "utilities"],
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

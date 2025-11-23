@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "exportedAt": "2023-11-23T12:00:00.000Z",
+  "type": "full-backup",
+  "metadata": {
+    "boardId": "proj-1700000000001",
+    "boardTitle": "SaaS Platform Launch",
+    "projectCount": 2,
+    "laneCount": 4,
+    "cardCount": 7
+  },
+  "projects": [
+    {
+      "id": "proj-1700000000001",
+      "name": "SaaS Platform Launch",
+      "description": "Q4 Product Launch for the new enterprise dashboard.",
+      "createdAt": "2023-11-01T00:00:00.000Z",
+      "lanes": []
+    },
+    {
+      "id": "proj-1700000000002",
+      "name": "Mobile App Refresh",
+      "description": "UI/UX overhaul for iOS and Android apps.",
+      "createdAt": "2023-11-15T00:00:00.000Z",
+      "lanes": []
+    }
+  ],
+  "board": {
+    "id": "board-proj-1700000000001",
+    "projectId": "proj-1700000000001",
+    "title": "SaaS Platform Launch",
+    "updatedAt": "2023-11-23",
+    "lanes": [
+      {
+        "id": "lane-1",
+        "title": "To Do",
+        "color": "#e2e8f0",
+        "cards": [
+          {
+            "id": "card-1",
+            "title": "Design System Audit",
+            "description": "Review current component library and identify missing states for the dark mode implementation.",
+            "priority": "high",
+            "labels": ["Design", "High Priority"],
+            "dueDate": "2023-11-25",
+            "createdAt": "2023-11-20T00:00:00.000Z"
+          },
+          {
+            "id": "card-2",
+            "title": "Setup CI/CD Pipeline",
+            "description": "Configure GitHub Actions for automated testing and deployment to staging environment.",
+            "priority": "medium",
+            "labels": ["DevOps"],
+            "dueDate": "2023-11-26",
+            "createdAt": "2023-11-21T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "id": "lane-2",
+        "title": "In Progress",
+        "color": "#3b82f6",
+        "cards": [
+          {
+            "id": "card-3",
+            "title": "Authentication API",
+            "description": "Implement JWT based auth flow with refresh tokens and secure cookie handling.",
+            "priority": "high",
+            "labels": ["Backend", "Security"],
+            "dueDate": "2023-11-24",
+            "createdAt": "2023-11-22T00:00:00.000Z"
+          },
+          {
+            "id": "card-4",
+            "title": "Hero Section Animation",
+            "description": "Implement the WebGL vortex effect for the landing page using Three.js.",
+            "priority": "medium",
+            "labels": ["Frontend", "Creative"],
+            "dueDate": "2023-11-23",
+            "createdAt": "2023-11-22T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "id": "lane-3",
+        "title": "Review",
+        "color": "#f59e0b",
+        "cards": [
+          {
+            "id": "card-5",
+            "title": "User Dashboard Layout",
+            "description": "Responsive grid layout for the main dashboard view. Needs check on mobile breakpoint.",
+            "priority": "medium",
+            "labels": ["Frontend"],
+            "dueDate": "2023-11-22",
+            "createdAt": "2023-11-21T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "id": "lane-4",
+        "title": "Done",
+        "color": "#10b981",
+        "cards": [
+          {
+            "id": "card-6",
+            "title": "Project Kickoff",
+            "description": "Initial team meeting and requirement gathering with stakeholders.",
+            "priority": "low",
+            "labels": ["Management"],
+            "dueDate": "2023-11-01",
+            "createdAt": "2023-11-01T00:00:00.000Z"
+          },
+          {
+            "id": "card-7",
+            "title": "Database Schema",
+            "description": "Finalize PostgreSQL schema design and migration scripts.",
+            "priority": "high",
+            "labels": ["Backend"],
+            "dueDate": "2023-11-05",
+            "createdAt": "2023-11-02T00:00:00.000Z"
+          }
+        ]
+      }
+    ]
+  },
+  "preferences": {
+    "theme": "dark",
+    "viewMode": "board",
+    "filterPriority": "all",
+    "sortBy": "updated",
+    "searchTerm": ""
+  }
+}
