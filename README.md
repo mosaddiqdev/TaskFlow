@@ -121,5 +121,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 <div align="center">
-  <p>Built with ❤️ by TaskFlow Team</p>
+  <p>Built with ❤️ by <a href="https://github.com/mosaddiqdev">TaskFlow Team<a/></p>
 </div>
